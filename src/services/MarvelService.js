@@ -23,9 +23,17 @@ class MarvelService {
     }
 
     _transformCharacter = (char) => {
+        let description = char.description;
+        
+        if (description === null || description === " " || description === "") {
+            description = "Данных об этом персонаже нет!";
+        } else if (description.length > 200) {
+            description = description.slice(0, 200) + "...";
+        }
+
         return {
             name: char.name,
-            description: char.description,
+            description: description,
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url
