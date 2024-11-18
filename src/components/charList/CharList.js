@@ -91,11 +91,11 @@ const CharList = (props) => {
 
     return (
         <div className="char__list">
-            <ul className="char__grid">
+            <>
                 {errorMessage}
                 {spinner}
                 {elements}
-            </ul>
+            </>
             <button 
                 className="button button__main button__long"
                 disabled={newItemLoading}
